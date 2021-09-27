@@ -5,22 +5,22 @@ public class Main {
 
         int option;
         int counter = 0;
+        int maxCounter = 200;
 
         System.out.println("Programa - biudzetas!");
         Scanner scn = new Scanner(System.in);
 
-
-        while (counter <= 100) {
+        while (counter <= 200) {
             System.out.println("Pasirinkite, ka noresite ivesti : " + '\n' +
                     "Jeigu pajamas, spauskite 1, jeigu islaidas, spauskite 2.");
+
             option = scn.nextInt();
+
             switch (option) {
                 case 1:
-                    System.out.println("Iveskite pajamas :");
+                    System.out.println("Iveskite pajamas : ");
                     PajamuIrasas pjm = new PajamuIrasas(scn.nextInt());
-                    System.out.println(pjm.getSuma());
-                    Biudzetas bdz = new Biudzetas();
-                    bdz.pajamos[counter] = pjm;
+                    int temp = pjm.getSuma();
 
                     counter++;
 
