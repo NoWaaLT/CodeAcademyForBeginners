@@ -5,13 +5,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-//        String option; // main programos meniu
         int pajamuIrasasCounter = 0;
         int islaiduIrasasCounter = 0;
-        int iBanka = 0; // pozymis ar i banko saskaita
-        int grynais = 0;
-        int islaidosGrynais = 0;
-        int islaidosKortele = 0;
+        int iBanka = 0, grynais = 0, islaidosGrynais = 0, islaidosKortele = 0; // pozymis ar i banko saskaita
         boolean onOrOff = true;
         boolean YN; // pozymis y ar n
         String pozymisArIBanka = null;
@@ -21,7 +17,7 @@ public class Main {
         int option3; // islaidu antram switchui
         int indeksoNr; // user nurodyti iraso indeksui laikyti
         LocalDateTime dateTime = LocalDateTime.now();
-        String option;
+        int option;
 
         System.out.println("Programa - biudzetas!");
 
@@ -33,15 +29,16 @@ public class Main {
                     "2. Iveskite islaidas \n" +
                     "3. Ispausdinti pajamu irasus \n" +
                     "4. Ispausdinti islaidu irasus \n" +
-                    "5. Isjungti programa");
+                    "5. Balansas\n" +
+                    "6. Isjungti programa");
 
-            option = scn.next();
+            option = scn.nextInt();
 
             switch (option) {
-                case "1":
-                    scn.nextLine();
+                case 1:
                     System.out.println("Iveskite pajamas : ");
-                    String suma = scn.nextLine();
+                    int suma = scn.nextInt();
+                    scn.nextLine();
                     String dataIrLaikas = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
                     System.out.println("Pajamu ivedimo data ir laikas " + dataIrLaikas);
                     String data = dataIrLaikas;
@@ -71,9 +68,10 @@ public class Main {
                     pajamuIrasasCounter++;
                     break;
 
-                case "2":
+                case 2:
                     System.out.println("Iveskite islaidas : ");
-                    String suma2 = scn.nextLine();
+                    int suma2 = scn.nextInt();
+                    scn.nextLine();
                     String dataIrLaikas2 = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
                     System.out.println("Islaidu ivedimo data ir laikas " + dataIrLaikas2);
                     String data2 = dataIrLaikas2;
@@ -102,7 +100,7 @@ public class Main {
                     b1.setInfo(i1);
                     islaiduIrasasCounter++;
                     break;
-                case "3":
+                case 3:
                     System.out.println("Is viso yra " + pajamuIrasasCounter + " irasu.");
                     System.out.println("1. Spausdinti viena irasa : \n" +
                             "2. Spausdinti visus pajamu irasus");
@@ -123,7 +121,7 @@ public class Main {
                     }
 
                     break;
-                case "4":
+                case 4:
                     System.out.println("Is viso yra " + islaiduIrasasCounter + " irasu.");
                     System.out.println("1. Spausdinti viena irasa : \n" +
                             "2. Spausdinti visus islaidu irasus");
@@ -143,21 +141,42 @@ public class Main {
                     }
                     break;
 
-                case "5":
-                    onOrOff = false;
+                case 5:
+                    boolean YN2 = true;
+                    while (YN2) {
+                        System.out.println("Nurodykite programai koki balansa spausdinti :\n" +
+                                "1. Pajamu balansas\n" +
+                                "2. Islaidu balansas");
+                        int case5 = scn.nextInt();
+                        scn.nextLine();
+                        switch (case5) {
+                            case 1:
+                                System.out.println(b1.TotalPajamuBalansas());
+                                YN2 = false;
+                                break;
+                            case 2:
+                                System.out.println(b1.TotalIslaiduBalansas());
+                                YN2 = false;
+                                break;
+                            default:
+                                System.out.println("Klaida");
+                        }
+
+                    }
+
                 default:
-                    if (option.equals("5")) {
+                    if (option == 6) {
                         System.out.println("Programa baigia darba.");
+                        onOrOff = false;
+                    } else if (option < 1 | option > 6){
+                        System.out.println("Tokio meniu pasirinkimo nera");
                         break;
                     }
-//                    else {
-//                        System.out.println("Klaida! Tokio pasirinkimo nera.");
-//                        continue;
-//                    }
+//
             }
+
         }
 
     }
-
 }
 

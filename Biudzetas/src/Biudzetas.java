@@ -36,6 +36,26 @@ public class Biudzetas {
 
         }
     }
+
+
+    public int TotalPajamuBalansas() {
+        int suma = 0;
+        for (int i = 0; i < counter; i++) {
+            suma += pajamos[i].getSuma();
+
+        }
+        return suma;
+    }
+
+    public int TotalIslaiduBalansas() {
+        int iSuma = 0;
+        for (int i = 0; i < counter2; i++) {
+            iSuma += islaidos[i].getSuma();
+        }
+        return iSuma;
+    }
+
+
     public void getPajamosSingleInfo(int indeksoNr) {
         System.out.println("Irasas indeksu " + indeksoNr + " : ");
         System.out.println("Suma : " + pajamos[indeksoNr].getSuma());
@@ -45,6 +65,7 @@ public class Biudzetas {
         System.out.println("Papildoma informacija : " + pajamos[indeksoNr].getPapildomaInfo());
         System.out.println("-----------------------------------------------");
     }
+
     public void getIslaidosInfoAll() {
         for (int i = 0; i < counter2; i++) {
             System.out.println("Islaidu suma : " + islaidos[i].getSuma());
@@ -55,6 +76,7 @@ public class Biudzetas {
             System.out.println("-----------------------------------------------");
         }
     }
+
     public void getIslaidosSingleInfo(int indeksoNr) {
         System.out.println("Irasas indeksu " + indeksoNr + " : ");
         System.out.println("Suma : " + islaidos[indeksoNr].getSuma());

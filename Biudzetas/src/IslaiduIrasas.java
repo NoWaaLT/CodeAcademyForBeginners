@@ -1,12 +1,12 @@
-public class IslaiduIrasas extends Biudzetas{
+public class IslaiduIrasas extends Biudzetas {
 
-    private String suma;
+    private int suma;
     private String dataSuLaiku;
     private String kategorija; // pajamos ar islaidos
     private String pozymisArIBanka2;
     private String papildomaInfo;
 
-    IslaiduIrasas(String suma,String dataSuLaiku, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
+    IslaiduIrasas(int suma, String dataSuLaiku, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
         this.suma = suma;
         this.dataSuLaiku = dataSuLaiku;
         this.kategorija = kategorija;
@@ -14,7 +14,7 @@ public class IslaiduIrasas extends Biudzetas{
         this.papildomaInfo = papildomaInfo;
     }
 
-    public String getSuma() {
+    public int getSuma() {
         return suma;
     }
 

@@ -1,27 +1,29 @@
 public class PajamuIrasas extends Biudzetas {
 
-    private String suma;
+    private int suma;
+    private int totalSuma;
     private String data;
     private String kategorija; // pajamos ar islaidos
     private String pozymisArIBanka;
     private String papildomaInfo;
 
-    PajamuIrasas(){
+    PajamuIrasas() {
 
     }
 
-    PajamuIrasas(String suma, String data, String kategorija, String pozymisArIBanka, String papildomaInfo) {
+    PajamuIrasas(int suma, String data, String kategorija, String pozymisArIBanka, String papildomaInfo) {
         this.suma = suma;
         this.data = data;
         this.kategorija = kategorija;
         this.pozymisArIBanka = pozymisArIBanka;
         this.papildomaInfo = papildomaInfo;
     }
-    public void setSuma(String suma) {
+
+    public void setSuma(int suma) {
         this.suma = suma;
     }
 
-    public String getSuma() {
+    public int getSuma() {
         return suma;
     }
 
